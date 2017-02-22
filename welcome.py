@@ -17,7 +17,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('https://yashubookkart.mybluemix.net')
 def Welcome():
     return app.send_static_file('index.html')
 
@@ -67,11 +67,11 @@ book_info = [
     
 ]
 
-@app.route('/bookkart/book_info', methods=['GET'])
+@app.route('https://yashubookkart.mybluemix.net/bookkart/book_info', methods=['GET'])
 def get_bookinfo():
     return jsonify({'book_details': book_info})
 
-@app.route('/bookkart/book_info/<int:category>', methods=['GET'])
+@app.route('https://yashubookkart.mybluemix.net/bookkart/book_info/<int:category>', methods=['GET'])
 def get_bookinfo_category(category):
     books = [i for i in book_info if i['category'] == category]
     if len(books) == 0:
